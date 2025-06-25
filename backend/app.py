@@ -16,6 +16,11 @@ WEATHER_API_KEY = os.getenv("WEATHER_API_KEY")
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 OPENROUTER_BOT_KEY = os.getenv("OPENROUTER_BOT_KEY")
 
+# === Route: Homepage ===
+@app.route('/')
+def home():
+    return "🌱 AI Climate Backend is running!"
+
 # === Weather Data Fetch Function ===
 def get_weather(city):
     url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={WEATHER_API_KEY}&units=metric"
@@ -57,7 +62,7 @@ def ask_ai():
         question = data.get('question')
         city = data.get('city')
 
-        print(f"[ASK-AI] Question received: {question} | City: {city}")
+        print(f"[ASK-AI] Question: {question} | City: {city}")
 
         if not question or not city:
             return jsonify({"error": "Question and city are required"}), 400
@@ -97,7 +102,7 @@ Else, respond in simple and helpful English.
         response = requests.post("https://openrouter.ai/api/v1/chat/completions", headers=headers, json=body)
         result = response.json()
 
-        print("[OPENROUTER RESPONSE]", result)
+        print("[ASK-AI RESPONSE]", result)
 
         if response.status_code == 200 and 'choices' in result:
             answer = result['choices'][0]['message']['content'].strip()
@@ -115,7 +120,7 @@ def green_chatbot():
     try:
         data = request.json
         question = data.get("question")
-        print(f"[GREEN-BOT] Received question: {question}")
+        print(f"[GREEN-BOT] Question: {question}")
 
         if not question:
             return jsonify({"error": "Question is required."}), 400
