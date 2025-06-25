@@ -1,8 +1,12 @@
-/* Base styles */
+/* Reset and Base Styles */
+html {
+  scroll-behavior: smooth;
+}
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: #f2f6fc;
+  background-color: #e0f2f1;
+  color: #333;
 }
 
 .app-container {
@@ -11,6 +15,13 @@ body {
   min-height: 100vh;
 }
 
+.page-container {
+  padding: 20px;
+  min-height: 100vh;
+  background-color: #e0f2f1;
+}
+
+/* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -20,6 +31,10 @@ body {
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
   flex-wrap: wrap;
   align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
 }
 
 .logo {
@@ -41,13 +56,13 @@ body {
   color: #ff69b4;
 }
 
-/* Home section */
+/* Hero Section */
 .hero-container {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  padding: 40px 20px;
+  padding: 100px 20px 40px;
   background: linear-gradient(to right, #e0f7fa, #f9fbe7);
   text-align: center;
   flex-grow: 1;
@@ -82,11 +97,15 @@ body {
 
 .hero-image {
   width: 300px;
-  max-width: 90%;
-  margin: 20px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50% / 40%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  margin-left: 40px;
 }
 
-/* Weather section */
+/* Weather Section */
 .weather-container {
   min-height: calc(100vh - 80px);
   background: linear-gradient(to right, #2c3e50, #3498db);
@@ -140,27 +159,7 @@ body {
   font-weight: bold;
 }
 
-/* Raindrop animation */
-.raindrop {
-  position: absolute;
-  top: -10px;
-  width: 2px;
-  height: 15px;
-  background: rgba(255, 255, 255, 0.6);
-  border-radius: 50%;
-  animation-name: fall;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  z-index: 0;
-}
-
-@keyframes fall {
-  to {
-    transform: translateY(100vh);
-  }
-}
-
-/* Contact section */
+/* Contact Section */
 .contact-section {
   background-color: #ecf0f1;
   padding: 60px 20px;
@@ -213,39 +212,57 @@ body {
 .contact-form button:hover {
   background-color: #1f618d;
 }
-.hero-image {
-  width: 300px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 50% / 40%;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
-  margin-left: 40px;
+
+/* Raindrop Animation */
+.raindrop {
+  position: absolute;
+  top: -10px;
+  width: 2px;
+  height: 15px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  z-index: 0;
 }
 
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+  }
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
+  .hero-container {
+    flex-direction: column;
+    padding-top: 120px;
+  }
+
   .hero-image {
     width: 200px;
     height: 140px;
     margin-left: 0;
     margin-top: 20px;
   }
-}
-/* app.css */
 
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #e0f2f1; /* light greenish-blue */
-  color: #333;
-}
+  .navbar {
+    padding: 10px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-/* Optional wrapper for padding and centering */
-.page-container {
-  padding: 20px;
-  min-height: 100vh;
-  background-color: #e0f2f1; /* Match home page */
-}
-html {
-  scroll-behavior: smooth;
+  .nav-btn {
+    font-size: 14px;
+    margin: 4px 0;
+  }
+
+  .weather-card {
+    padding: 20px;
+  }
+
+  .contact-section {
+    padding: 40px 15px;
+  }
 }

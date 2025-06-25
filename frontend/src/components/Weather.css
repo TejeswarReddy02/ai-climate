@@ -2,11 +2,11 @@
   background: url('https://cdn.pixabay.com/photo/2016/11/29/09/16/clouds-1867313_1280.jpg') no-repeat center center fixed;
   background-size: cover;
   min-height: 100vh;
-  padding: 40px;
+  padding: 40px 20px;
   color: white;
   font-family: 'Segoe UI', sans-serif;
+  box-sizing: border-box;
 }
-
 
 .weather-title {
   text-align: center;
@@ -14,9 +14,14 @@
   margin-bottom: 20px;
 }
 
+/* Input Section */
 .weather-input-section {
   text-align: center;
   margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
 }
 
 .weather-input, .ai-input {
@@ -25,7 +30,7 @@
   width: 300px;
   border-radius: 8px;
   border: none;
-  margin-right: 10px;
+  max-width: 90%;
 }
 
 .weather-btn {
@@ -36,13 +41,16 @@
   border-radius: 8px;
   color: white;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .weather-error {
   color: #ff4e4e;
   text-align: center;
+  margin-top: 10px;
 }
 
+/* Weather card */
 .weather-card {
   background-color: rgba(255, 255, 255, 0.15);
   padding: 20px;
@@ -51,8 +59,10 @@
   max-width: 400px;
   margin: 20px auto;
   backdrop-filter: blur(6px);
+  color: #fff;
 }
 
+/* AI Section */
 .ai-section {
   text-align: center;
   margin-top: 30px;
@@ -64,5 +74,39 @@
   padding: 15px;
   border-radius: 10px;
   display: inline-block;
-  max-width: 500px;
+  max-width: 90%;
+  color: #fff;
+  word-wrap: break-word;
+  white-space: pre-line;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 600px) {
+  .weather-title {
+    font-size: 1.5rem;
+  }
+
+  .weather-input, .ai-input {
+    width: 90%;
+  }
+
+  .weather-btn {
+    width: 90%;
+    margin-top: 8px;
+  }
+
+  .weather-input-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .weather-card {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .ai-response {
+    width: 90%;
+    padding: 12px;
+  }
 }

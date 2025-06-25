@@ -3,7 +3,9 @@
   justify-content: center;
   align-items: center;
   height: 90vh;
+  padding: 20px;
   background: linear-gradient(to right, #e0f7fa, #f1f8e9);
+  box-sizing: border-box;
 }
 
 .auth-box {
@@ -14,10 +16,12 @@
   width: 100%;
   max-width: 400px;
   text-align: center;
+  box-sizing: border-box;
 }
 
 .auth-box h2 {
   margin-bottom: 1rem;
+  font-size: 1.5rem;
 }
 
 input {
@@ -27,9 +31,11 @@ input {
   border: 1px solid #ddd;
   border-radius: 10px;
   font-size: 1rem;
+  box-sizing: border-box;
 }
 
-.auth-btn, .google-btn {
+.auth-btn,
+.google-btn {
   width: 100%;
   padding: 0.75rem;
   margin-top: 1rem;
@@ -37,11 +43,16 @@ input {
   border-radius: 10px;
   font-size: 1rem;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .auth-btn {
   background-color: #007bff;
   color: white;
+}
+
+.auth-btn:hover {
+  background-color: #0056b3;
 }
 
 .google-btn {
@@ -54,4 +65,24 @@ input {
 .error {
   color: red;
   margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+/* 🔁 Responsive for smaller screens */
+@media (max-width: 600px) {
+  .auth-box {
+    padding: 1.5rem 1rem;
+    border-radius: 12px;
+  }
+
+  .auth-box h2 {
+    font-size: 1.3rem;
+  }
+
+  input,
+  .auth-btn,
+  .google-btn {
+    font-size: 0.95rem;
+    padding: 0.65rem;
+  }
 }

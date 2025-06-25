@@ -91,7 +91,7 @@
   font-size: 1.1rem;
 }
 
-/* AI */
+/* AI Section */
 .ai-box {
   margin-top: 2rem;
   display: flex;
@@ -234,3 +234,56 @@
   text-decoration: underline;
 }
 
+/* === Mobile Responsive === */
+@media (max-width: 600px) {
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 3rem 1rem;
+  }
+
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .hero-image {
+    width: 90%;
+    margin-top: 1.5rem;
+  }
+
+  .input-group input,
+  .ai-box input,
+  .input-group button,
+  .ai-box button {
+    width: 90vw;
+  }
+
+  .weather-card {
+    width: 90vw;
+    font-size: 1rem;
+  }
+
+  .suggestion-section {
+    padding: 1rem;
+  }
+
+  .card {
+    width: 180px;
+    height: auto;
+    padding: 12px;
+  }
+
+  .card p {
+    font-size: 13px;
+  }
+
+  .footer {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .footer-column {
+    margin: 20px 0;
+  }
+}
