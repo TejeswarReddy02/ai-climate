@@ -5,6 +5,7 @@ import smtplib
 from email.message import EmailMessage
 import os
 from dotenv import load_dotenv
+
 load_dotenv()
 
 app = Flask(__name__)
@@ -48,7 +49,7 @@ def weather():
         return jsonify({"error": "City not found or connection error"}), 404
     return jsonify(result)
 
-# === Route: /ask-ai ===
+# === Route: /ask-ai (Weather AI Assistant) ===
 @app.route('/ask-ai', methods=['POST'])
 def ask_ai():
     try:
@@ -107,6 +108,46 @@ Else, respond in simple and helpful English.
     except Exception as e:
         print("[ASK-AI ERROR]", e)
         return jsonify({"response": "🤖 AI is unavailable. Please try later.", "error": str(e)}), 500
+
+# === Route: /chat (Green Bot) ===
+@app.route('/chat', methods=['POST'])
+def green_chatbot():
+    try:
+        data = request.json
+        question = data.get("question")
+        print(f"[GREEN-BOT] Received question: {question}")
+
+        if not question:
+            return jsonify({"error": "Question is required."}), 400
+
+        headers = {
+            'Authorization': f'Bearer {OPENROUTER_BOT_KEY}',
+            'Content-Type': 'application/json'
+        }
+
+        body = {
+            "model": "mistralai/mistral-7b-instruct:free",
+            "max_tokens": 400,
+            "messages": [
+                {"role": "system", "content": "You are GreenBot, an eco-friendly assistant that educates users on climate change, green practices, cleanliness, and sustainability."},
+                {"role": "user", "content": question}
+            ]
+        }
+
+        response = requests.post("https://openrouter.ai/api/v1/chat/completions", headers=headers, json=body)
+        result = response.json()
+
+        print("[GREEN-BOT RESPONSE]", result)
+
+        if response.status_code == 200 and 'choices' in result:
+            reply = result['choices'][0]['message']['content'].strip()
+            return jsonify({"response": reply}), 200
+        else:
+            return jsonify({"response": "Green Bot is unavailable", "error": result}), 500
+
+    except Exception as e:
+        print("[GREEN-BOT ERROR]", e)
+        return jsonify({"response": "Green Bot is currently unavailable", "error": str(e)}), 500
 
 # === Route: /contact ===
 @app.route('/contact', methods=['POST'])
