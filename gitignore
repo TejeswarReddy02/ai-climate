@@ -1,0 +1,35 @@
+# Node.js (frontend)
+node_modules/
+frontend/build/
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.production.local
+frontend/.next/
+
+# Python (backend)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+backend/.env
+
+# Logs
+*.log
+logs/
+
+# macOS
+.DS_Store
+
+# VS Code
+.vscode/
+
+# Render & Vercel deployment artifacts
+.vercel/
+render.yaml
+
+# Others
+*.sqlite3
+*.db

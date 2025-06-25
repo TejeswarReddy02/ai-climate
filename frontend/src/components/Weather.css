@@ -1,0 +1,68 @@
+.weather-page {
+  background: url('https://cdn.pixabay.com/photo/2016/11/29/09/16/clouds-1867313_1280.jpg') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  padding: 40px;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+
+.weather-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.weather-input-section {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.weather-input, .ai-input {
+  padding: 10px;
+  font-size: 1rem;
+  width: 300px;
+  border-radius: 8px;
+  border: none;
+  margin-right: 10px;
+}
+
+.weather-btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #3c8dbc;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+}
+
+.weather-error {
+  color: #ff4e4e;
+  text-align: center;
+}
+
+.weather-card {
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 20px;
+  border-radius: 16px;
+  text-align: center;
+  max-width: 400px;
+  margin: 20px auto;
+  backdrop-filter: blur(6px);
+}
+
+.ai-section {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.ai-response {
+  margin-top: 15px;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 15px;
+  border-radius: 10px;
+  display: inline-block;
+  max-width: 500px;
+}

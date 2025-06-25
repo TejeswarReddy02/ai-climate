@@ -1,0 +1,16 @@
+.raindrop {
+  position: fixed;
+  top: -20px;
+  width: 2px;
+  height: 15px;
+  background: #00aaff;
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+  }
+}
