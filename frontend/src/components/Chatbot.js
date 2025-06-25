@@ -15,7 +15,7 @@ function Chatbot() {
     setMessage('');
 
     try {
-      const res = await fetch('https://climate-api-set4.onrender.com/chat', {
+      const res = await fetch('https://ai-climate.onrender.com/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message }),

@@ -7,7 +7,7 @@ function AIWeatherAssistant({ city }) {
 
   const askAI = async () => {
     try {
-      const res = await fetch('https://climate-api-set4.onrender.com/ask-ai', {
+      const res = await fetch('https://ai-climate.onrender.com/ask-ai', {
 
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

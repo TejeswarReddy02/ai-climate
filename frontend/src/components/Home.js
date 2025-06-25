@@ -14,7 +14,7 @@ function Home() {
   const fetchWeather = async () => {
     if (!city) return;
     try {
-      const res = await fetch(`https://climate-api-set4.onrender.com/weather?city=${city}`);
+      const res = await fetch(`https://ai-climate.onrender.com/weather?city=${city}`);
 
       const data = await res.json();
       if (res.ok) {
@@ -36,7 +36,7 @@ function Home() {
     setLoading(true);
     setAiResponse('');
     try {
-      const res = await fetch('https://climate-api.onrender.com/ask-ai', {
+      const res = await fetch('https://ai-climate.onrender.com/ask-ai', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ question: query, city: weather.city }),

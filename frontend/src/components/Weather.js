@@ -11,7 +11,7 @@ function Weather() {
 
   const fetchWeather = async () => {
     try {
-      const res = await fetch(`https://climate-api-set4.onrender.com/weather?city=${city}`);
+      const res = await fetch(`https://ai-climate.onrender.com/weather?city=${city}`);
       const data = await res.json();
       if (res.ok) {
         setWeather(data);
